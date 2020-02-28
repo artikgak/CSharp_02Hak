@@ -73,7 +73,7 @@ namespace KMACSharp02Hak.ViewModels.DatePicker
                 return _personInfo;
 
             }
-            set
+            private set
             {
                 _personInfo = value;
                 OnProperyChanged();
@@ -109,8 +109,12 @@ namespace KMACSharp02Hak.ViewModels.DatePicker
                     try
                     {
                         Person person = new Person(Name, Surname, Email, (DateTime) BirthDate);
-                            PersonInfo = $"Name: {person.Name}\nSurname: {person.Surname}\nEmail: {person.Email}\nBirthDate: {person.BirthDate.ToShortDateString()}\n" +
-                                         $"IsBirthday: {person.IsBirthday}\nIsAdult: {person.IsAdult}\nChineseSign: {person.ChineseSign}\nSunSign: {person.SunSign}";
+                            PersonInfo = $"Name: {person.Name}\nSurname: {person.Surname}\nEmail: {person.Email}\n" +
+                                         $"BirthDate: {person.BirthDate.ToShortDateString()}\n" +
+                                         $"IsBirthday: {person.IsBirthday}\nIsAdult: {person.IsAdult}\n" +
+                                         $"ChineseSign: {person.ChineseSign}\nSunSign: {person.SunSign}";
+                            if (person.IsBirthday)
+                                MessageBox.Show("Happy Birthday! Have a nice day");
                     }
                     catch (InvalidDataException e)
                     {

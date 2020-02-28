@@ -27,7 +27,7 @@ namespace KMACSharp02Hak.Models
 
             }
 
-            set
+            private set
             {
                 _name = value;
 
@@ -42,7 +42,7 @@ namespace KMACSharp02Hak.Models
 
             }
 
-            set
+            private set
             {
                 _surname = value;
 
@@ -57,7 +57,7 @@ namespace KMACSharp02Hak.Models
 
             }
 
-            set
+            private set
             {
                 _email = value;
 
@@ -72,7 +72,7 @@ namespace KMACSharp02Hak.Models
 
             }
 
-            set
+            private set
             {
                 _birthDate = value;
 
