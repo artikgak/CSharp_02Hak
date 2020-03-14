@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using KMACSharp02Hak.Exceptions;
 
 namespace KMACSharp02Hak.Models
 {
@@ -23,7 +25,7 @@ namespace KMACSharp02Hak.Models
         {
             get
             {
-                return _name; 
+                return _name;
 
             }
 
@@ -107,6 +109,8 @@ namespace KMACSharp02Hak.Models
         {
             _name = name;
             _surname = surname;
+            if(!IsEmailValid(email))
+                throw new InvalidEmailException("Error: Invalid email");
             _email = email;
             _birthDate = birthDate;
             _isBirthday = CheckBirthDay();
@@ -115,24 +119,16 @@ namespace KMACSharp02Hak.Models
             _chineseSign = ComputeChineseZodiac();
         }
 
-        internal Person(string name, string surname, string email)
-        {
-            _name = name;
-            _surname = surname;
-            _email = email;
-        }
+        internal Person(string name, string surname, string email): this(name, surname, email, DateTime.Today){}
 
-        internal Person(string name, string surname, DateTime birthDate)
-        {
-            _name = name;
-            _surname = surname;
-            _birthDate = birthDate;
-                        _isBirthday = CheckBirthDay();
-            _isAdult = CheckAdult();
-            _sunSign = ComputeWesternZodiac();
-            _chineseSign = ComputeChineseZodiac();
-        }
+        internal Person(string name, string surname, DateTime birthDate): this(name, surname, "", birthDate){}
+        
         #endregion
+
+        private bool IsEmailValid(string email)
+        {
+            return Regex.IsMatch(email, "\\w+@(\\w+.)+[a-z]{2,4}", RegexOptions.IgnoreCase);
+        }
 
         private bool CheckBirthDay()
         {
@@ -146,9 +142,11 @@ namespace KMACSharp02Hak.Models
             if (BirthDate.Month > today.Month ||
                 (BirthDate.Month == today.Month && BirthDate.Day > today.Day))
                 --res;
-            if (res >= 0 && res <= 135)
-                return res >= 18;
-            throw new InvalidDataException("Invalid date picked");
+            if (res < 0)
+                throw new BirthDateInFutureException("Error: Date in future picked.");
+            if (res > 135)
+                throw new BirthDateInLongPastException("Error: Date in long past picked.");
+            return res >= 18;
         }
 
         private string ComputeWesternZodiac()

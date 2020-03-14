@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
+using KMACSharp02Hak.Exceptions;
 using KMACSharp02Hak.Models;
 using KMACSharp02Hak.Tools;
 using KMACSharp02Hak.Tools.Managers;
@@ -109,14 +110,22 @@ namespace KMACSharp02Hak.ViewModels.DatePicker
                     try
                     {
                         Person person = new Person(Name, Surname, Email, (DateTime) BirthDate);
-                            PersonInfo = $"Name: {person.Name}\nSurname: {person.Surname}\nEmail: {person.Email}\n" +
-                                         $"BirthDate: {person.BirthDate.ToShortDateString()}\n" +
-                                         $"IsBirthday: {person.IsBirthday}\nIsAdult: {person.IsAdult}\n" +
-                                         $"ChineseSign: {person.ChineseSign}\nSunSign: {person.SunSign}";
-                            if (person.IsBirthday)
-                                MessageBox.Show("Happy Birthday! Have a nice day");
+                        PersonInfo = $"Name: {person.Name}\nSurname: {person.Surname}\nEmail: {person.Email}\n" +
+                                     $"BirthDate: {person.BirthDate.ToShortDateString()}\n" +
+                                     $"IsBirthday: {person.IsBirthday}\nIsAdult: {person.IsAdult}\n" +
+                                     $"ChineseSign: {person.ChineseSign}\nSunSign: {person.SunSign}";
+                        if (person.IsBirthday)
+                            MessageBox.Show("Happy Birthday! Have a nice day");
                     }
-                    catch (InvalidDataException e)
+                    catch(InvalidEmailException e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                    catch (BirthDateInFutureException e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                    catch (BirthDateInLongPastException e)
                     {
                         MessageBox.Show(e.Message);
                     }
