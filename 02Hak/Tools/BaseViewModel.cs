@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
-namespace KMACSharp02Hak.Tools
+namespace KMACSharp02_03Hak.Tools
 {
     internal abstract class BaseViewModel : INotifyPropertyChanged
     {

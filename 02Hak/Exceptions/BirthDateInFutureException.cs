@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 
-namespace KMACSharp02Hak.Exceptions
+namespace KMACSharp02_03Hak.Exceptions
 {
     internal class BirthDateInFutureException : Exception
     {

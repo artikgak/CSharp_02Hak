@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace KMACSharp02Hak
+namespace KMACSharp02_03Hak
 {
     /// <summary>
     /// Interaction logic for App.xaml

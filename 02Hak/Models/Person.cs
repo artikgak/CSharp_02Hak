@@ -1,9 +1,8 @@
 ﻿using System;
-using System.IO;
 using System.Text.RegularExpressions;
-using KMACSharp02Hak.Exceptions;
+using KMACSharp02_03Hak.Exceptions;
 
-namespace KMACSharp02Hak.Models
+namespace KMACSharp02_03Hak.Models
 {
     internal class Person
 

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using KMACSharp02Hak.ViewModels;
+using KMACSharp02_03Hak.ViewModels;
 
-namespace KMACSharp02Hak
+namespace KMACSharp02_03Hak
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

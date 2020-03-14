@@ -1,14 +1,13 @@
 ﻿using System;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
-using KMACSharp02Hak.Exceptions;
-using KMACSharp02Hak.Models;
-using KMACSharp02Hak.Tools;
-using KMACSharp02Hak.Tools.Managers;
-using KMACSharp02Hak.Tools.MVVM;
+using KMACSharp02_03Hak.Exceptions;
+using KMACSharp02_03Hak.Models;
+using KMACSharp02_03Hak.Tools;
+using KMACSharp02_03Hak.Tools.Managers;
+using KMACSharp02_03Hak.Tools.MVVM;
 
-namespace KMACSharp02Hak.ViewModels.DatePicker
+namespace KMACSharp02_03Hak.ViewModels.DatePicker
 {
     internal class DateViewModel : BaseViewModel
     {

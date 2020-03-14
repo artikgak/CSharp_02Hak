@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
-using KMACSharp02Hak.ViewModels.DatePicker;
+using KMACSharp02_03Hak.ViewModels.DatePicker;
 
-namespace KMACSharp02Hak.Views.DatePicker
+namespace KMACSharp02_03Hak.Views.DatePicker
 {
     /// <summary>
     /// Interaction logic for DateView.xaml

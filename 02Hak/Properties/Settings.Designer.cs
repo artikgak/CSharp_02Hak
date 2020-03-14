@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMACSharp02Hak.Properties {
+namespace KMACSharp02_03Hak.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
