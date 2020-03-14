@@ -76,6 +76,7 @@
     <Compile Include="Exceptions\BirthDateInFutureException.cs" />
     <Compile Include="Exceptions\BirthDateInLongPastException.cs" />
     <Compile Include="Exceptions\InvalidEmailException.cs" />
+    <Compile Include="Exceptions\InvalidNameException.cs" />
     <Compile Include="Tools\BaseViewModel.cs" />
     <Compile Include="Tools\ILoaderOwner.cs" />
     <Compile Include="Tools\Managers\LoaderManager.cs" />

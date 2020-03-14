@@ -117,7 +117,11 @@ namespace KMACSharp02Hak.ViewModels.DatePicker
                         if (person.IsBirthday)
                             MessageBox.Show("Happy Birthday! Have a nice day");
                     }
-                    catch(InvalidEmailException e)
+                    catch (InvalidNameException e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                    catch (InvalidEmailException e)
                     {
                         MessageBox.Show(e.Message);
                     }

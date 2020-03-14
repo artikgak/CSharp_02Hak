@@ -107,10 +107,14 @@ namespace KMACSharp02Hak.Models
 
         internal Person(string name, string surname, string email, DateTime birthDate)
         {
+            if (!IsNameValid(name))
+                throw new InvalidNameException("Error. invalid name entered: " + name);
             _name = name;
+            if(!IsNameValid(surname))
+                throw new InvalidNameException("Error. invalid surname entered: " + surname);
             _surname = surname;
             if(!IsEmailValid(email))
-                throw new InvalidEmailException("Error: Invalid email");
+                throw new InvalidEmailException("Error. Invalid email entered: " + email);
             _email = email;
             _birthDate = birthDate;
             _isBirthday = CheckBirthDay();
@@ -124,6 +128,13 @@ namespace KMACSharp02Hak.Models
         internal Person(string name, string surname, DateTime birthDate): this(name, surname, "", birthDate){}
         
         #endregion
+
+        private bool IsNameValid(string name)
+        {
+            //allows words separated by - or space with length >=2
+            // for example for double names as "Betty Grace" or surnames with prefixes as "De Bakker"
+            return Regex.IsMatch(name, "[A-Za-z]{2,}((-| )[A-Za-z]{2,})*", RegexOptions.IgnoreCase);
+        }
 
         private bool IsEmailValid(string email)
         {
@@ -143,9 +154,9 @@ namespace KMACSharp02Hak.Models
                 (BirthDate.Month == today.Month && BirthDate.Day > today.Day))
                 --res;
             if (res < 0)
-                throw new BirthDateInFutureException("Error: Date in future picked.");
+                throw new BirthDateInFutureException("Error. Date in future picked: " + BirthDate.ToShortDateString());
             if (res > 135)
-                throw new BirthDateInLongPastException("Error: Date in long past picked.");
+                throw new BirthDateInLongPastException("Error. Date in long past picked: " + BirthDate.ToShortDateString());
             return res >= 18;
         }
 
