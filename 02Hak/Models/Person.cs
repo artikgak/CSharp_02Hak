@@ -107,13 +107,13 @@ namespace KMACSharp02_03Hak.Models
         internal Person(string name, string surname, string email, DateTime birthDate)
         {
             if (!IsNameValid(name))
-                throw new InvalidNameException("Error. invalid name entered: " + name);
+                throw new InvalidNameException("Error. invalid Name entered: " + name);
             _name = name;
             if(!IsNameValid(surname))
-                throw new InvalidNameException("Error. invalid surname entered: " + surname);
+                throw new InvalidNameException("Error. invalid Surname entered: " + surname);
             _surname = surname;
             if(!IsEmailValid(email))
-                throw new InvalidEmailException("Error. Invalid email entered: " + email);
+                throw new InvalidEmailException("Error. Invalid Email entered: " + email);
             _email = email;
             _birthDate = birthDate;
             _isBirthday = CheckBirthDay();
@@ -130,7 +130,7 @@ namespace KMACSharp02_03Hak.Models
 
         private bool IsNameValid(string name)
         {
-            //allows words separated by - or space with length >=2
+            //allows words with length >=2 separated by - or space
             // for example for double names as "Betty Grace" or surnames with prefixes as "De Bakker"
             return Regex.IsMatch(name, "[A-Za-z]{2,}((-| )[A-Za-z]{2,})*", RegexOptions.IgnoreCase);
         }
