@@ -120,6 +120,10 @@ namespace KMACSharp02_03Hak.ViewModels.DatePicker
                     {
                         MessageBox.Show(e.Message);
                     }
+                    catch (InvalidSurnameException e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
                     catch (InvalidEmailException e)
                     {
                         MessageBox.Show(e.Message);

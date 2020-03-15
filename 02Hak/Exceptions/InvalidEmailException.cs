@@ -4,7 +4,7 @@ namespace KMACSharp02_03Hak.Exceptions
 {
     internal class InvalidEmailException : Exception
     {
-        public InvalidEmailException(string message) : base(message) { }
-        public InvalidEmailException(string message, Exception inner) : base(message, inner) { }
+        public InvalidEmailException(string email) : base("Error. Invalid Email entered: " + email) { }
+        public InvalidEmailException(string email, Exception inner) : base("Error. Invalid Email entered: " + email, inner) { }
     }
 }

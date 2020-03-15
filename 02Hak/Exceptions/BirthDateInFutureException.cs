@@ -4,7 +4,7 @@ namespace KMACSharp02_03Hak.Exceptions
 {
     internal class BirthDateInFutureException : Exception
     {
-        public BirthDateInFutureException(string message) : base(message) { }
-        public BirthDateInFutureException(string message, Exception inner) : base(message, inner) { }
+        public BirthDateInFutureException(DateTime date) : base("Error. Date in future picked: " + date.ToShortDateString()) { }
+        public BirthDateInFutureException(DateTime date, Exception inner) : base("Error. Date in future picked: " + date.ToShortDateString(), inner) { }
     }
 }

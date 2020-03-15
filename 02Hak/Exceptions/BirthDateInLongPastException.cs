@@ -4,7 +4,7 @@ namespace KMACSharp02_03Hak.Exceptions
 {
     internal class BirthDateInLongPastException : Exception
     {
-        public BirthDateInLongPastException(string message) : base(message) { }
-        public BirthDateInLongPastException(string message, Exception inner) : base(message, inner) { }
+        public BirthDateInLongPastException(DateTime date) : base("Error. Date in long past picked: " + date.ToShortDateString()) { }
+        public BirthDateInLongPastException(DateTime date, Exception inner) : base("Error. Date in long past picked: " + date.ToShortDateString(), inner) { }
     }
 }
